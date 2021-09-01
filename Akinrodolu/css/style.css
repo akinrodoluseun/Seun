@@ -278,7 +278,8 @@ header {
         min-width: 250px;
         position: relative;
         z-index: 2;
-        border-radius: 5px;
+        border-radius: 1em;
+        box-shadow: var(--bs);
     }    
     
     .section__subtitle--intro {
@@ -406,13 +407,14 @@ header {
     background: var(--clr-accent);
     overflow: hidden;
     border-radius: 2em;
-    box-shadow: var(--bs);
+
 }
 
 .portfolio__img {
     transition: 
         transform 750ms cubic-bezier(.5, 0, .5, 1),
         opacity 250ms linear;
+        box-shadow: var(--bs);
 }
 
 .portfolio__item:focus {
@@ -493,5 +495,5 @@ header {
     background-color: darkcyan;
     border-radius: 1em;
     box-shadow: 1em;
-    
+
 }
