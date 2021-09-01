@@ -486,3 +486,12 @@ header {
     margin-left: auto;
     margin-right: auto;
 }
+
+.button{
+    box-shadow: brown;
+    text-align: center;
+    background-color: darkcyan;
+    border-radius: 1em;
+    box-shadow: 1em;
+    
+}
