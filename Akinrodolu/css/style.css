@@ -278,7 +278,7 @@ header {
         min-width: 250px;
         position: relative;
         z-index: 2;
-        border-radius: 1em;
+        border-radius: 9px;
         box-shadow: var(--bs);
     }    
     
