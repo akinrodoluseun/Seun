@@ -262,49 +262,83 @@ header {
 
 .intro {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5em;
 }
 
-.intro__img {
-    box-shadow: var(--bs);
-}
-
-.section__subtitle--intro {
-    display: inline-block;
-}
-
-@media (min-width: 600px) {
+@media (min-width: 900px) {
     .intro {
         display: grid;
-        width: min-content;
-        margin: 0 auto;
-        grid-column-gap: 1em;
-        grid-template-areas: 
+        grid-template-areas:
             "img title"
             "img subtitle";
         grid-template-columns: min-content max-content;
+        align-items: center;
+        justify-content: center;
+        gap: 2em 2.5em;
+        text-align: left;
+        width: auto;
+        margin: 0 auto;
     }
-    
     .intro__img {
         grid-area: img;
-        min-width: 250px;
-        position: relative;
-        z-index: 2;
-        border-radius: 9px;
-        box-shadow: var(--bs);
-    }    
-    
+        min-width: 350px;
+        max-width: 520px;
+        width: 32vw;
+        border-radius: 12px;
+        margin: 0;
+    }
+    .section__title--intro {
+        grid-area: title;
+        margin: 0 0 0.5em 0;
+        text-align: left;
+    }
     .section__subtitle--intro {
-        align-self: start;
-        grid-column: -1 / 1;
-        grid-row: 2;
-        text-align: right;
-        position: relative;
-        left: -1.5em;
-        width: calc(100% + 1.5em);
+        grid-area: subtitle;
+        margin: 0;
+        text-align: left;
     }
 }
 
+@media (max-width: 899px) {
+    .intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5em;
+    }
+    .intro__img {
+        width: 90vw;
+        max-width: 400px;
+        min-width: 180px;
+        border-radius: 10px;
+        margin: 2em auto 0 auto;
+    }
+    .section__title--intro,
+    .section__subtitle--intro {
+        text-align: center;
+        margin: 0.5em 0 0.5em 0;
+    }
+}
 
+@media (max-width: 480px) {
+    .intro__img {
+        width: 98vw;
+        max-width: 98vw;
+        min-width: 120px;
+        margin-top: 1em;
+    }
+    .section__title--intro {
+        font-size: 2rem;
+    }
+    .section__subtitle--intro {
+        font-size: 1rem;
+    }
+}
 
 /*  My services section  */
 
