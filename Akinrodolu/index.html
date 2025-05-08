@@ -83,13 +83,11 @@
         <!-- About me -->
         <section class="about-me" id="about">
            <h2 class="section__title section__title--about">Who I am</h2>
-           <p class="section__subtitle section__subtitle--about">I turn ideas into impact 
-            — 
-            I bridge vision and execution to bring bold ideas to life.</p>
+           <p class="section__subtitle section__subtitle--about">Product Leader & Impact Strategist.</p>
            
            <div class="about-me__body">
-               <p>I am a product manager who is focused on customer-centric product design, lean product strategy, and agile growth. My experience covers diverse industries including EdTech, FinTech, Heathtech, Travel, Logistics, and Agriculture.</p>
-               <p>I have 7+ years of  B2C and B2B experience, Creating and generating delightful user experiences, growth expansion that drives business value.</p>
+               <p>I am a Product Manager specializing in customer-centric design, lean product strategy, and agile growth execution. With over 7 years of B2C and B2B experience, I’ve led product initiatives across EdTech, FinTech, Healthtech, Travel, Logistics, and Agriculture—delivering user experiences that drive engagement, scale, and measurable business value.</p>
+               <p>I bring a balance of strategic thinking and execution, with a strong focus on delivering products that align with both user needs and business goals.</p>
            </div>
            <!--- YOU CAN EDIT THIS PLACE ALSO-->
            <img src="img/Akinrodolu.jpg" alt="Fine boy gang" class="about-me__img">
@@ -130,9 +128,16 @@
                 
                 <!-- Add more items as needed -->
             </div>
-            <a href="index.html" class="btn">Back to Home</a>
+        
         </section>
 
+        <!-- Blog Section -->
+        <section class="blog" id="blog">
+            <h2 class="section__title section__title--blog">Build, create, Repeat</h2>
+            <div id="blog-posts" class="blog-posts">
+                <!-- Blog articles will appear here -->
+            </div>
+        </section>
      
         <!--- END HERE -->
         
@@ -166,8 +171,56 @@
             </ul>
         </footer>
         
-        
         <script src="js/index.js"></script>
+        <script>
+const blogPosts = [
+    {
+        title: "How to Build a Product Roadmap",
+        date: "2024-05-01",
+        summary: "A step-by-step guide to creating a product roadmap that aligns with your business goals.",
+        url: "blog/how-to-build-a-product-roadmap.html"
+    },
+    {
+        title: "User Research Best Practices",
+        date: "2024-04-15",
+        summary: "Learn the best techniques for conducting user research and applying insights.",
+        url: "blog/user-research-best-practices.html"
+    },
+    {
+        title: "Agile vs. Waterfall: Which is Right for Your Project?",
+        date: "2024-03-20",
+        summary: "A comparison of Agile and Waterfall methodologies to help you choose the right approach.",
+        url: "blog/agile-vs-waterfall.html"
+    },
+    {
+        title: "The Importance of User-Centered Design",
+        date: "2024-02-10",
+        summary: "Why user-centered design is crucial for product success and how to implement it.",
+        url: "blog/user-centered-design.html"
+    },
+    // Add more posts here
+];
+
+const gradients = [
+    "linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%)",
+    "linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)",
+    "linear-gradient(135deg, #f9d423 0%, #ff4e50 100%)",
+    "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)"
+];
+
+function renderBlogPosts() {
+    const container = document.getElementById('blog-posts');
+    container.innerHTML = blogPosts.map((post, i) => `
+        <article class="blog-post" style="background: ${gradients[i % gradients.length]};">
+            <h3><a href="${post.url}">${post.title}</a></h3>
+            <small>${post.date}</small>
+            <p>${post.summary}</p>
+        </article>
+    `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', renderBlogPosts);
+</script>
         
     </body>
 </html>
