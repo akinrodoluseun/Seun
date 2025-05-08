@@ -216,9 +216,6 @@ header {
 
 
 
-
-
-
 .hamburger {
     display: block;
     position: relative;
@@ -404,13 +401,18 @@ header {
 }
 
 .portfolio__item {
+    width: 200px; /* Box width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 15px; /* Reduced spacing between boxes */
     background: var(--clr-accent);
     overflow: hidden;
     border-radius: 2em;
-
 }
 
 .portfolio__img {
+    width: 100%; /* Ensure the image fits the box */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Optional: Crop image if needed */
     transition: 
         transform 750ms cubic-bezier(.5, 0, .5, 1),
         opacity 250ms linear;
@@ -496,4 +498,88 @@ header {
     border-radius: 1em;
     box-shadow: 1em;
 
+}
+
+/* General styles for smaller screens */
+@media (max-width: 768px) {
+    /* Adjust header navigation */
+    .nav__list {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 2em;
+    }
+
+    .nav__link {
+        font-size: 1rem;
+        padding: 0.5em 0;
+    }
+
+    /* Adjust intro section */
+    .intro {
+        text-align: center;
+        padding: 2em 1em;
+    }
+
+    .intro__img {
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    /* Adjust services section */
+    .services {
+        display: block;
+        padding: 1em;
+    }
+
+    .service {
+        margin-bottom: 2em;
+    }
+
+    /* Adjust about-me section */
+    .about-me {
+        display: block;
+        padding: 1em;
+    }
+
+    .about-me__img {
+        max-width: 100%;
+        margin: 1em auto;
+    }
+
+    /* Adjust portfolio section */
+    .portfolio {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .portfolio__item {
+        margin: 5px;
+    }
+
+    /* Footer adjustments */
+    .footer {
+        padding: 1em;
+        font-size: 0.9rem;
+    }
+
+    .social-list {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+}
+
+/* Styles for very small screens (e.g., phones) */
+@media (max-width: 480px) {
+    .section__title {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: 0.5em 1.5em;
+        font-size: 0.8rem;
+    }
+
+    .portfolio__item {
+        width: 100%;
+    }
 }
