@@ -86,22 +86,16 @@ strong { font-weight: var(--fw-bold) }
 
 .btn {
     display: inline-block;
-    padding: .5em 2.5em;
-    background: var(--clr-accent);
-    color: var(--clr-dark);
+    padding: 0.5em 1.5em;
+    background: #1abc9c;
+    color: #fff;
     text-decoration: none;
-    cursor: pointer;
-    font-size: .8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: var(--fw-bold);
-    transition: transform 200ms ease-in-out;
-    box-shadow: var(--bs);
-    border-radius: 1em;
+    border-radius: 8px;
+    transition: background 0.3s ease;
 }
 
 .btn:hover {
-    transform: scale(1.1);
+    background: #16a085;
 }
 
 /* Typography */
@@ -144,8 +138,8 @@ h3 { font-size: var(--fs-h3) }
 }
 
 .section__subtitle--work {
-    color: var(--clr-accent);
-    font-weight: var(--fw-bold);
+    font-size: 1.2rem;
+    color: #555;
     margin-bottom: 2em;
 }
 
@@ -433,7 +427,96 @@ header {
     }
 }
 
-/* My Work */
+/* My Work Section */
+.my-work {
+    background: #f7fafc;
+    padding: 4em 2em;
+    text-align: center;
+}
+
+.section__title--work {
+    font-size: 2.5rem;
+    color: #1abc9c;
+    margin-bottom: 0.5em;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+    justify-items: center;
+}
+
+/* Portfolio Card */
+.portfolio-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Portfolio Card Image */
+.portfolio-card__image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-card__image img {
+    transform: scale(1.1);
+}
+
+/* Portfolio Card Content */
+.portfolio-card__content {
+    padding: 1.5em;
+}
+
+.portfolio-card__title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+.portfolio-card__description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+.portfolio-card__link {
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    background: #1abc9c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.portfolio-card__link:hover {
+    background: #16a085;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio-card__image img {
+        height: 180px;
+    }
+}
 
 .my-work {
     background-color: var(--clr-dark);
@@ -478,16 +561,124 @@ header {
     opacity: .5;
 }
 
+/* Portfolio Highlight Section */
+.portfolio-highlight {
+    background: var(--clr-bg-light);
+    padding: 3em 2em;
+    text-align: center;
+    margin-bottom: 2em;
+    border-radius: 12px;
+    box-shadow: var(--clr-shadow);
+}
+
+.portfolio-highlight__title {
+    font-size: 2rem;
+    color: var(--clr-primary);
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.portfolio-highlight__text {
+    font-size: 1.1rem;
+    color: var(--clr-text-main);
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Portfolio Header */
+.portfolio-header {
+    background: #1abc9c;
+    padding: 1em 2em;
+    text-align: center;
+}
+
+.portfolio-header .nav__list {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.portfolio-header .nav__link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Portfolio Intro */
+.portfolio-intro {
+    text-align: center;
+    padding: 2em 1em;
+    background: #f4f4f4;
+}
+
+.portfolio-title {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.portfolio-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 0.5em;
+}
+
+/* Portfolio Cards */
+.portfolio-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    padding: 2em 1em;
+    background: #fff;
+}
+
+.portfolio-card {
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.portfolio-card__content {
+    padding: 1.5em;
+}
+
+.portfolio-card__title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+.portfolio-card__text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1em;
+}
 
 /* footer */
 
 .footer {
-    background: #111;
-    color: var(--clr-accent);
     text-align: center;
-    padding: 2.5em 0;
-    font-size: var(--fs-h3);
-
+    padding: 2em 1em;
+    background: #333;
+    color: #fff;
 }
 
 .footer a { 
@@ -496,12 +687,9 @@ header {
 }
 
 .footer__link {
-    font-weight: var(--fw-bold);
-}
-
-.footer__link:hover,
-.social-list__link:hover {
-    opacity: .7;
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .footer__link:hover {
@@ -512,8 +700,8 @@ header {
     list-style: none;
     display: flex;
     justify-content: center;
-    margin: 2em 0 0;
-    padding: 0;
+    gap: 1em;
+    margin-top: 1em;
 }
 
 .social-list__item {
@@ -521,9 +709,14 @@ header {
 }
 
 .social-list__link {
-    padding: .5em;
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
 }
 
+.social-list__link:hover {
+    color: #1abc9c;
+}
 
 /* Individual portfolio item styles */
 
@@ -939,4 +1132,36 @@ header {
     .portfolio__item {
         width: 100%;
     }
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    z-index: 1000;
+}
+
+.back-button__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    text-decoration: none;
+    color: var(--clr-primary); /* Use your primary color */
+    font-size: 1rem;
+    font-weight: bold;
+    background: var(--clr-light);
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.back-button__link:hover {
+    background: var(--clr-primary);
+    color: var(--clr-light);
+}
+
+.back-button__link i {
+    font-size: 1.2rem;
 }
