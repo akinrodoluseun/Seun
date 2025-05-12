@@ -66,17 +66,6 @@ body {
     line-height: 1.6;
 }
 
-/* Section Animation */
-section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-section.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 img {
     display: block;
@@ -189,14 +178,31 @@ header {
 }
 
 .nav__link {
+    position: relative;
     color: inherit;
     font-weight: var(--fw-bold);
     font-size: var(--fs-h2);
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--clr-accent);
+    transition: width 0.3s ease;
 }
 
 .nav__link:hover {
     color: var(--clr-accent);
+}
+
+.nav__link:hover::after {
+    width: 100%;
 }
 
 .nav-toggle {
@@ -433,7 +439,20 @@ header {
 /* Responsive Design */
 @media (max-width: 768px) {
     .services {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack services vertically */
+        gap: 1.5em;
+    }
+
+    .service {
+        padding: 1.5em;
+    }
+
+    .service h3 {
+        font-size: 1.2rem;
+    }
+
+    .service p {
+        font-size: 0.9rem;
     }
 }
 
@@ -568,6 +587,29 @@ header {
 @media (max-width: 768px) {
     .portfolio-card__image img {
         height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Stack portfolio items vertically */
+        gap: 1.5em;
+    }
+
+    .portfolio-card {
+        max-width: 100%; /* Ensure cards take full width */
+    }
+
+    .portfolio-card__image img {
+        height: auto; /* Adjust image height for better scaling */
+    }
+
+    .portfolio-card__title {
+        font-size: 1.2rem;
+    }
+
+    .portfolio-card__description {
+        font-size: 0.9rem;
     }
 }
 
@@ -1245,7 +1287,7 @@ header {
     }
 
     section {
-        padding: 3em 1em; /* Reduce padding for smaller screens */
+        padding: 2em 1em; /* Reduce padding for smaller screens */
     }
 
     h1, h2, h3 {
@@ -1256,4 +1298,25 @@ header {
         padding: 0.5em 1em;
         font-size: 0.9rem;
     }
+}
+
+/* Smooth Transition for Sections */
+section {
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Slight upward movement */
+    transition: opacity 0.7s ease, transform 0.7s ease; /* Slower transition */
+}
+
+/* When the section is visible */
+section.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
+section {
+    opacity: 1;
+    transform: none;
+    margin: 4em 0; /* Add vertical spacing between sections */
+    padding: 2em 1em; /* Internal padding for content */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
