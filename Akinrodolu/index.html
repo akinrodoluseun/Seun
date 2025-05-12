@@ -27,6 +27,12 @@
     })(window, document, "clarity", "script", "ridk2v2ulj");
 </script>
 
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
     </head>
     <body>
             <!-- Google Tag Manager (noscript) -->
@@ -64,26 +70,30 @@
         <section class="my-services" id="services">
             <h2 class="section__title section__title--services">What I Do</h2>
             <div class="services">
+                <!-- Service 1 -->
                 <div class="service">
                     <h3>Human-Centered Innovation & Agile Execution</h3>
-                    <p>I lead with empathy—building products that solve real problems by putting people first. My approach combines user research, behavioral insights, and iterative testing to ensure that every feature meets actual needs, not assumptions. I embed myself within cross-functional teams, using agile practices to translate vision into velocity. From discovery to launch, I champion rapid iteration, continuous feedback, and seamless collaboration that drives meaningful, measurable outcomes. </p>
-                </div> <!-- / service -->
-                
+                    <p>
+                        I lead with empathy—building products that solve real problems by putting people first. My approach combines user research, behavioral insights, and iterative testing to ensure that every feature meets actual needs, not assumptions.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
                 <div class="service">
                     <h3>Data-Informed Decisions & Scalable Impact</h3>
-                        <p>I believe great products are driven by curiosity and grounded in evidence. 
-                            I use data—not just to report performance—but to guide decisions, shape strategy, and prioritize what matters most. 
-                            From cohort analysis to A/B testing, I leverage insights to improve user experience and unlock growth opportunities. At scale, this means building systems that learn and adapt, delivering long-term value for both users and the business..</p>
-                </div> <!-- / service -->
-                
+                    <p>
+                        I use data—not just to report performance—but to guide decisions, shape strategy, and prioritize what matters most. From cohort analysis to A/B testing, I leverage insights to improve user experience and unlock growth opportunities.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
                 <div class="service">
                     <h3>Growth Strategy & Product Planning</h3>
-                     <p>My strength lies in connecting high-level vision with execution-ready plans. I define growth strategies that align business goals with user needs—mapping out quarterly roadmaps, identifying levers for retention, and aligning product teams around KPIs that matter. Whether entering a new market, launching a new feature, or optimizing a mature product, 
-                        I build with clarity, adaptability, and a relentless focus on sustainable growth.</p>
-                </div> <!-- / service -->
-            </div> <!-- / services -->
-            
-            <a href="#work" class="btn">My Work</a>
+                    <p>
+                        My strength lies in connecting high-level vision with execution-ready plans. I define growth strategies that align business goals with user needs—mapping out quarterly roadmaps, identifying levers for retention, and aligning product teams around KPIs that matter.
+                    </p>
+                </div>
+            </div>
         </section>
         
         
@@ -390,6 +400,35 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+
+<script>
+    // Function to check if an element is in the viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Add 'in-view' class to sections when they are in the viewport
+    function handleScroll() {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            if (isInViewport(section)) {
+                section.classList.add('in-view');
+            }
+        });
+    }
+
+    // Listen for scroll events
+    window.addEventListener('scroll', handleScroll);
+
+    // Trigger the function on page load
+    document.addEventListener('DOMContentLoaded', handleScroll);
+</script>
         
         <!--- END HERE -->
         
@@ -427,4 +466,4 @@ if ('serviceWorker' in navigator) {
         
     </body>
 </html>
-`
+``` 

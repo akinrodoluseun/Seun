@@ -66,8 +66,16 @@ body {
     line-height: 1.6;
 }
 
+/* Section Animation */
 section {
-    padding: 5em 2em;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.in-view {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 img {
@@ -319,6 +327,26 @@ header {
     }
 }
 
+@media (max-width: 768px) {
+    .intro {
+        text-align: center;
+        padding: 2em 1em;
+    }
+
+    .intro__img {
+        max-width: 150px;
+        margin: 0 auto;
+    }
+
+    .section__title--intro {
+        font-size: 1.8rem;
+    }
+
+    .section__subtitle--intro {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 480px) {
     .intro__img {
         width: 98vw;
@@ -337,52 +365,77 @@ header {
 /*  My services section  */
 
 .my-services {
-    background-color: var(--clr-dark);
-    background-image: url(../img/fun.jpg);
+    position: relative;
+    background-image: url('../img/fun.jpg'); /* Replace with your background image */
     background-size: cover;
-    /* background-blend-mode: multiply; */
-    color: var(--clr-light);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 5em 2em;
     text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.my-services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+    z-index: 1;
 }
 
 .section__title--services {
-    color: var(--clr-accent);
     position: relative;
-}
-
-.section__title--services::after {
-    content: '';
-    display: block;
-    width: 2em;
-    height: 1px;
-    margin: 0.5em auto 1em;
-    background: var(--clr-light);
-    opacity: 0.25;
-
+    font-size: 2.5rem;
+    color: #1abc9c;
+    margin-bottom: 1em;
+    z-index: 2;
 }
 
 .services {
-    margin-bottom: 4em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    position: relative;
+    z-index: 2;
 }
 
 .service {
-    max-width: 500px;
-    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1); /* Transparent box effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border-radius: 12px;
+    padding: 2em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
 }
 
-@media (min-width: 800px) {
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.service h3 {
+    font-size: 1.5rem;
+    color: #1abc9c;
+    margin-bottom: 1em;
+}
+
+.service p {
+    font-size: 1rem;
+    color: #f1f1f1;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .services {
-        display: flex;
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .service + .service {
-        margin-left: 2em;
+        grid-template-columns: 1fr;
     }
 }
-
 
 .about-me {
     max-width: 1000px;
@@ -1053,6 +1106,10 @@ header {
 /* General styles for smaller screens */
 @media (max-width: 768px) {
     /* Adjust header navigation */
+    header {
+        padding: 1em;
+    }
+
     .nav__list {
         flex-direction: column;
         justify-content: flex-start;
@@ -1064,6 +1121,12 @@ header {
         padding: 0.5em 0;
     }
 
+    .nav-toggle {
+        position: fixed;
+        top: 1em;
+        right: 1em;
+    }
+
     /* Adjust intro section */
     .intro {
         text-align: center;
@@ -1073,6 +1136,14 @@ header {
     .intro__img {
         max-width: 150px;
         margin: 0 auto;
+    }
+
+    .section__title--intro {
+        font-size: 1.8rem;
+    }
+
+    .section__subtitle--intro {
+        font-size: 1rem;
     }
 
     /* Adjust services section */
@@ -1164,4 +1235,25 @@ header {
 
 .back-button__link i {
     font-size: 1.2rem;
+}
+
+/* General Mobile Optimizations */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9rem; /* Slightly smaller font size for better readability */
+        line-height: 1.5;
+    }
+
+    section {
+        padding: 3em 1em; /* Reduce padding for smaller screens */
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5rem; /* Adjust heading sizes */
+    }
+
+    .btn {
+        padding: 0.5em 1em;
+        font-size: 0.9rem;
+    }
 }
