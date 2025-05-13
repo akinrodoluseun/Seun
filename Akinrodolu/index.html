@@ -250,11 +250,11 @@
         <section class="resources" id="resources">
             <h2 class="section__title section__title--resources">Resources</h2>
             <p class="resources__intro">
-                Discover curated resources to help you grow in product management, tech, and business. Browse articles, guides, tools, and learning materials—some handpicked by me, others recommended by AI to keep you ahead of the curve. Use the search below to quickly find what you need!
+                Discover curated resources to help you grow in product management, tech, and business. Browse articles, guides, tools, and learning materials—some handpicked by me, others recommended by AI to keep you ahead of the curve.
             </p>
             <input type="text" id="resource-search" class="resource-search" placeholder="Search resources...">
             <div id="resource-list" class="resource-list">
-                <!-- Resources will be rendered here -->
+                <!-- Resources will be dynamically rendered here -->
             </div>
         </section>
 
@@ -325,7 +325,6 @@ function renderBlogPosts() {
 document.addEventListener('DOMContentLoaded', renderBlogPosts);
 
 const resources = [
-    // Your uploaded/added resources
     {
         title: "Product Management 101",
         type: "Article",
@@ -342,11 +341,10 @@ const resources = [
         description: "A practical guide to implementing agile in your team.",
         tags: ["agile", "teams", "guide"]
     },
-    // AI recommended resources
     {
         title: "Coursera: Digital Product Management",
         type: "Online Course",
-        source: "Coursera (AI Recommendation)",
+        source: "Coursera",
         url: "https://www.coursera.org/learn/uva-darden-digital-product-management",
         description: "Learn digital product management from top instructors.",
         tags: ["online course", "product management", "digital"]
@@ -354,20 +352,11 @@ const resources = [
     {
         title: "Harvard Business Review: What Is Product Management?",
         type: "Article",
-        source: "HBR (AI Recommendation)",
+        source: "HBR",
         url: "https://hbr.org/2020/02/what-is-product-management",
         description: "A concise explanation of the product management role.",
         tags: ["article", "product management", "HBR"]
-    },
-    {
-        title: "Product School: Free Product Management Resources",
-        type: "Resource Hub",
-        source: "Product School (AI Recommendation)",
-        url: "https://productschool.com/resources/",
-        description: "A hub for templates, ebooks, webinars, and more.",
-        tags: ["templates", "ebooks", "webinars", "product management"]
     }
-    // Add more as needed
 ];
 
 function renderResources(filter = "") {
@@ -383,13 +372,9 @@ function renderResources(filter = "") {
     }
     container.innerHTML = filtered.map(res => `
         <div class="resource-card">
-            <h3><a href="${res.url}" target="_blank">${res.title}</a></h3>
-            <span class="resource-type">${res.type}</span>
-            <span class="resource-source">${res.source}</span>
+            <h3>${res.title}</h3>
             <p>${res.description}</p>
-            <div class="resource-tags">
-                ${res.tags.map(tag => `<span class="resource-tag">${tag}</span>`).join(' ')}
-            </div>
+            <a href="${res.url}" target="_blank">View Resource</a>
         </div>
     `).join('');
 }

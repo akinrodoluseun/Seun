@@ -999,128 +999,117 @@ header {
 
 /* Resources Section */
 .resources {
-    background: #f7fafc;
     padding: 4em 2em;
-    margin-top: 0;
-}
-
-.section__title--resources {
+    background: #f9f9f9; /* Light background for a clean look */
     text-align: center;
-    color: #16e0bd;
-    margin-bottom: 0.5em;
 }
 
 .resources__intro {
-    max-width: 700px;
-    margin: 0 auto 2em auto;
-    text-align: center;
-    color: #333;
-    font-size: 1.1em;
+    font-size: 1.2rem;
+    color: #555; /* Friendly gray text */
+    margin-bottom: 2em;
 }
 
 .resource-search {
-    display: block;
-    margin: 0 auto 2em auto;
-    padding: 0.7em 1.2em;
-    border-radius: 2em;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    max-width: 350px;
     width: 100%;
-    box-sizing: border-box;
+    max-width: 500px;
+    padding: 0.8em 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 2em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-search:focus {
+    border-color: #16e0bd; /* Accent color */
+    box-shadow: 0 0 8px rgba(22, 224, 189, 0.5);
+    outline: none;
 }
 
 .resource-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.2em;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
 }
 
 .resource-card {
-    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-    border-radius: 1em;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.06);
-    padding: 1.2em 1em;
-    max-width: 210px;
-    min-width: 160px;
-    flex: 1 1 160px;
-    margin: 0.3em;
-    color: #222;
-    transition: transform 0.3s cubic-bezier(.5,0,.5,1), box-shadow 0.3s cubic-bezier(.5,0,.5,1);
-    opacity: 0;
-    transform: translateY(30px) scale(0.96);
-    animation: resourceFadeIn 0.7s forwards;
-    font-size: 0.98em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes resourceFadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .resource-card h3 {
-    margin-bottom: 0.2em;
-    font-size: 1em;
+    font-size: 1.2rem;
+    color: #16e0bd; /* Accent color */
+    margin-bottom: 0.5em;
+}
+
+.resource-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1em;
 }
 
 .resource-card a {
-    color: #16e0bd;
+    display: inline-block;
+    padding: 0.5em 1em;
+    background: #16e0bd;
+    color: #fff;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
-    word-break: break-word;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
 }
 
 .resource-card a:hover {
-    text-decoration: underline;
+    background: #13bda3; /* Slightly darker accent color */
 }
 
-.resource-type, .resource-source {
-    display: inline-block;
-    font-size: 0.75em;
-    margin-right: 0.5em;
-    color: #555;
-    background: #e6fffa;
-    border-radius: 1em;
-    padding: 0.1em 0.6em;
-    margin-bottom: 0.3em;
-}
-
-.resource-tags {
-    margin-top: 0.7em;
-}
-
-.resource-tag {
-    display: inline-block;
-    background: #16e0bd;
-    color: #fff;
-    border-radius: 1em;
-    padding: 0.15em 0.7em;
-    font-size: 0.75em;
-    margin-right: 0.2em;
-    margin-bottom: 0.1em;
-}
-
-.no-resource {
-    text-align: center;
-    color: #888;
-    font-size: 1em;
-    width: 100%;
-}
-
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .resource-list {
-        flex-direction: column;
-        align-items: center;
+    .resources {
+        padding: 3em 1em; /* Reduce padding for smaller screens */
     }
+
+    .resources__intro {
+        font-size: 1rem; /* Smaller font size for intro text */
+    }
+
+    .resource-search {
+        width: 100%; /* Full width for search bar */
+        font-size: 0.9rem; /* Slightly smaller font size */
+    }
+
+    .resource-list {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 1.5em; /* Reduce gap between cards */
+    }
+
     .resource-card {
-        max-width: 98%;
-        min-width: 0;
+        padding: 1em; /* Reduce padding inside cards */
+    }
+
+    .resource-card h3 {
+        font-size: 1rem; /* Smaller font size for titles */
+    }
+
+    .resource-card p {
+        font-size: 0.8rem; /* Smaller font size for descriptions */
+    }
+
+    .resource-card a {
+        font-size: 0.8rem; /* Smaller font size for buttons */
+        padding: 0.4em 0.8em; /* Adjust button padding */
     }
 }
 
