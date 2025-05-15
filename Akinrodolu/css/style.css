@@ -302,29 +302,110 @@ header {
     background: rgba(22, 224, 189, 0.8);
 }
 
-/* Add space between navbar and Home section */
+/* Adjust the home section to prevent overlapping and ensure proper alignment */
 #home {
-    margin-top: 5em; /* Adjust the value as needed */
+    padding: 2em 1em;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content from overflowing */
 }
 
-/*  Intro section  */
-
+/* Center and animate the intro details section */
 .intro {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    gap: 1.5em;
+    padding: 2em 1em;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .intro__details {
-    font-size: 1rem; /* Adjust font size for readability */
-    color: #555; /* Friendly gray color */
+    font-size: 1rem;
+    color: #555;
     margin-top: 1em;
     line-height: 1.6;
-    max-width: 600px; /* Limit width for better readability */
+    max-width: 600px;
     text-align: center;
+    animation: slideUp 1.5s ease-in-out;
+}
+
+/* Add animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+    #home {
+        padding: 1.5em 1em;
+    }
+
+    .intro {
+        padding: 1.5em 1em;
+    }
+
+    .intro__details {
+        font-size: 0.9rem;
+        max-width: 90%;
+    }
+
+    .intro__img {
+        max-width: 100%;
+        width: 80%;
+        height: auto;
+        margin-top: 1em;
+    }
+}
+
+/* Make images larger for mobile screens */
+@media (max-width: 480px) {
+    .intro__img {
+        max-width: 100%;
+        width: 90%;
+        height: auto;
+    }
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+    #home {
+        padding: 1.5em 1em;
+    }
+
+    .intro {
+        padding: 1.5em 1em;
+    }
+
+    .intro__details {
+        font-size: 0.9rem;
+        max-width: 90%;
+    }
+
+    .intro__img {
+        max-width: 100%;
+        width: 80%;
+        height: auto;
+        margin-top: 1em;
+    }
 }
 
 @media (min-width: 900px) {
@@ -403,18 +484,12 @@ header {
     }
 }
 
+/* Make images larger for mobile screens */
 @media (max-width: 480px) {
     .intro__img {
-        width: 98vw;
-        max-width: 98vw;
-        min-width: 120px;
-        margin-top: 1em;
-    }
-    .section__title--intro {
-        font-size: 2rem;
-    }
-    .section__subtitle--intro {
-        font-size: 1rem;
+        max-width: 100%;
+        width: 90%;
+        height: auto;
     }
 }
 
@@ -820,25 +895,27 @@ header {
 /* footer */
 
 .footer {
+    background: #1abc9c; /* Vibrant green background */
+    color: #fff; /* White text for contrast */
     text-align: center;
     padding: 2em 1em;
-    background: #333;
-    color: #fff;
+    font-size: 1rem;
+    margin-top: 2em;
 }
 
-.footer a { 
-    color: inherit;
+.footer a {
+    color: #fff; /* White links */
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #16e0bd; /* Slightly lighter green on hover */
 }
 
 .footer__link {
-    color: #1abc9c;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer__link:hover {
-    text-decoration: underline;
+    margin: 0 0.5em;
 }
 
 .social-list {
@@ -847,10 +924,11 @@ header {
     justify-content: center;
     gap: 1em;
     margin-top: 1em;
+    padding: 0;
 }
 
 .social-list__item {
-    margin: 0 .5em;
+    margin: 0;
 }
 
 .social-list__link {
@@ -860,7 +938,7 @@ header {
 }
 
 .social-list__link:hover {
-    color: #1abc9c;
+    color: #16e0bd; /* Accent color on hover */
 }
 
 /* Individual portfolio item styles */
